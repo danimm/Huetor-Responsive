@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Alojamientos Huetor</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Allerta" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<!--    <link rel="stylesheet" media="(max-width: 800px)" href="css/media-query.css">-->
+    <!-- Servicio externo es un CDN -->
+    
+</head>
+<body>
+    
+    <section class="portada background">    <!-- Portada -->
+    <header class="header contenedor">
+        <figure class="logo">    <!-- Logotipo -->
+            <img src="img/logo-5.svg" alt="Huetor logo" width="250" height="100">
+        </figure>
+        <span id="burger-button" class="burger-button icon-menu"></span>
+        <nav id="navbar" class="navbar">    <!-- Menú de navegacion -->
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#habitaciones">Habitaciones</a></li>
+                <li><a href="precios.html">Precios</a></li>
+            </ul>
+        </nav>
+    </header>
+<!--titulo-->
+      <div class="contenedor cont-portada">
+           <h1 class="titulo">Alojamientos rurales en Málaga</h1>
+           <h3 class="title-a">El lugar perfecto para relajarse y disfrutar.</h3>
+
+    <!-- boton-->
+           <a href="#habitaciones" class="button">Conoce más</a>
+       </div>
+    </section>
+    <section class="habitaciones contenedor" id="habitaciones">    <!-- Habitaciones -->
+        <h2>Nuestras habitaciones</h2>
+        <div class="video-responsive-contenedor">
+        <iframe class="video-responsive-src" width="560" height="315" src="https://www.youtube.com/embed/R1dW8M4EqYY" frameborder="0" allowfullscreen></iframe>
+        </div>
+        
+        <article class="habitacion">
+            <img data-src="img/simple.jpg" alt="Habitacion Simple" width="340" class="right">
+            <div class="contenedor-habitacion-a">
+           <h3 class="title-b">Habitación Simple</h3>
+            
+            <ol>
+                <li>Super cómoda</li>
+                <li>Perfecta para un finde</li>
+                <li>Ideal para parejitas</li>
+            </ol>
+            </div>
+        </article>
+        <article class="habitacion">
+            <img class="left" data-src="img/doble.jpg" alt="Habitacion Doble" width="340">
+            <div class="contenedor-habitacion-b">
+               <h3 class="title-b">Habitación Doble</h3>
+
+                <ol>
+                    <li>Para las familias</li>
+                    <li>Duerme mas anchito</li>
+                    <li>Materiales premium</li>
+                </ol>
+            </div>
+        </article>
+    </section>
+    <footer class="footer">
+        <div class="contenedor cont">
+            <div class="contacto">
+                <img data-src="img/logo-5.svg" alt="logotipo" height="200px" width="280px">
+                <a href="tel:+555777999"><strong>Telefono</strong><span>302447999</span></a>
+                <a href="mailto:contacto@alojamientoshuetor.com"><strong>Email</strong><span>contacto@huetor.com</span></a>
+            </div>
+            <form class="formulario">
+            <div class="col-1">
+          <label for="nombre">Nombre</label>
+<input type="text" id="nombre" name="nombre" required placeholder="Introduce tu nombre" />
+<label for="Email">Email</label>
+<input type="email" id="Email" name="email" required placeholder="Introduce tu email" />
+<div class="sexo">
+    <label for="mujer">
+                   <input type="radio" id="mujer" name="sexo" value="mujer"> mujer
+               </label>
+    <label for="hombre">
+                   <input type="radio" id="hombre" name="sexo" value="hombre"> hombre
+                   </label>
+</div>
+<div class="intereses">
+    <label for="cotizacion">
+                    <input type="checkbox" id="contizacion" name="intereses" value="cotizacion"> Cotización
+                </label>
+    <label for="reclamos">
+                    <input type="checkbox" id="reclamos" name="intereses" value="reclamos"> Reclamos
+                   </label>
+    <label for="comentarios">
+                    <input type="checkbox" id="comentarios" name="intereses" value="comentarios"> Comentarios
+                   </label>
+    <label for="Otros">
+                    <input type="checkbox" id="Otros" name="intereses" value="otros"> Otros
+                   </label>
+</div>
+</div>
+<div class="col-2">
+    <label for="comentarios">Asunto</label>
+    <textarea name="comentarios" id="comentarios" cols="30" rows="7"></textarea>
+    <input type="submit" value="Enviar" class="button">
+    </div>
+        </form>
+        </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/blazy/1.8.2/blazy.min.js"></script>
+    <script>
+        var consulta = window.matchMedia('(max-width:582px)');
+        consulta.addListener(mediaQuery);
+        
+        var $burgerButton = document.getElementById("burger-button");
+        var $navbar = document.getElementById("navbar");
+        function toggleMenu(){
+            $navbar.classList.toggle('active');
+            $burgerButton.classList.toggle('icon-close');
+        };
+        
+        function mediaQuery(){
+            if(consulta.matches){
+           // si se cumple hagamos esto
+            console.log('se cumplió la condicion');
+            $burgerButton.addEventListener('touchstart', toggleMenu);
+                                                
+            
+           } else{
+               $burgerButton.removeEventListener('touchstart', toggleMenu);
+           // si no se cumple hagamos esto
+               console.log('no se cumplió la condicion');
+           }
+        }
+        
+        mediaQuery();
+        
+        // lazy loading
+        var bLazy = new Blazy({
+            selector: 'img'
+            //options
+        });
+        
+        
+        
+        //$burgerButton.addEventListener('touchstart', toggleMenu);
+                                                
+        // function toggleMenu(){
+        //    $navbar.classList.toggle('active')
+        //};
+    
+    </script>
+    </body>
+</html>
