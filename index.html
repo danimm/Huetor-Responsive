@@ -38,10 +38,13 @@
     </section>
     <section class="habitaciones contenedor" id="habitaciones">    <!-- Habitaciones -->
         <h2>Nuestras habitaciones</h2>
+        <div class="video-demo-contenedor">
+        <div class="video-demo">
         <div class="video-responsive-contenedor">
         <iframe class="video-responsive-src" width="560" height="315" src="https://www.youtube.com/embed/R1dW8M4EqYY" frameborder="0" allowfullscreen></iframe>
         </div>
-        
+        </div>
+        </div>
         <article class="habitacion">
             <img data-src="img/simple.jpg" alt="Habitacion Simple" width="340" class="right">
             <div class="contenedor-habitacion-a">
@@ -111,6 +114,8 @@
         </form>
         </div>
     </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js">
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/blazy/1.8.2/blazy.min.js"></script>
     <script>
         var consulta = window.matchMedia('(max-width:582px)');
@@ -120,6 +125,16 @@
         var $navbar = document.getElementById("navbar");
         function toggleMenu(){
             $navbar.classList.toggle('active');
+            $burgerButton.classList.toggle('icon-close');
+        };
+        
+        function showMenu(){
+            $navbar.classList.add('active');
+            $burgerButton.classList.toggle('icon-close');
+        };
+        
+        function hideMenu(){
+            $navbar.classList.remove('active');
             $burgerButton.classList.toggle('icon-close');
         };
         
@@ -153,6 +168,12 @@
         //    $navbar.classList.toggle('active')
         //};
     
+        //gestos Touch
+        var $body = document.body
+        var gestos = new Hammer($body);
+            gestos.on('swipeleft', hideMenu);
+            gestos.on('swiperight', showMenu);
+        
     </script>
     </body>
 </html>
